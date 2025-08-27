@@ -1,0 +1,232 @@
+객체 지향 프로그래밍이 뭔데
+객체 지향 프로그래밍(OBject Oriented programming)이란 프로그래밍에서 필요한 데이터를 추상화 시켜서 상태 , 행위를 가진 객체를 만들고 그 객체 끼리 서로 상호작용을 통해서 구성하는 프로그래밍이다.
+객체(object) / 지향 (Oriented) / 프로그래밍(programming) 을 따로 보면 객체는 말 그대로 사람이든 사물이든 자신이 가진 특징과 기능을 가진 실체를 의미한다.
+지향(Oriented) 어떤 것을 목적을 가지고 원하다는 뜻이다. 객체지향은 자신이 가진 특징과 기능을 가진 실체를 원한다 라는 뜻이다 , 프로그래밍은 모두 잘 알듯 컴퓨터로 프로그램을 작성하는 일이다
+따라서 객체 지향 프로그래밍은 자신이 가진 특징과 기능을 가진 실체들로 프로그래밍을 하는 것 이다.
+클래스
+클래스는 객체를 생성해주는 틀이라고 생각하면 편하다. 클래스에서 객체를 만들고 메소드도 만든다.
+
+
+메소드(method)
+클래스만으로는 객체를 동작시킬 수 없습니다. 객체를 움직이게 하려면 메서드(Method)라는 기능이 필요합니다.쉽게 말해, 객체가 수행할 수 있는 동작(행동)이 메서드입니다.
+
+한 마디로 일 하는 것
+
+붕어빵 틀로 붕어빵을 굽는 과정을 메서드라고 생각하면 됩니다. 이 과정을 통해 붕어빵(객체)이 만들어지는 거죠.
+
+자동차(Class) → 소방차(Instance) → 직진(메서드)
+
+사람(Class) → 아기(Instance) → 울기(메서드)
+
+2. 메소드 선언
+접근제어자 (public , private , protected , default)
+리턴 타입 (int , String , void 등…)
+메소드 이름
+매개변수
+public class test
+public int sum(int x, int y){
+int rs = x + y;
+return 0;
+public static void main(String[] args) {
+// 2) 실행메소드에서 sum메소드 호출
+	test a = new test;
+	a.sum(100, 200); }
+아니 근데 이거 왜 씀?
+게임 속 플레이어를 예로 들어보면, 플레이어 하나에는 이름, 체력, 스킬 같은 속성이 있을 겁니다. 플레이어가 여러 명이라면, 각 플레이어는 서로 다른 데이터를 갖게 되겠죠.
+player 1
+name : james
+health : 80
+skill : gun
+
+player 2
+name : jonh
+health : 90
+skill : programmer
+
+player 3
+name : kelly
+health : 75
+skill : sing
+
+이렇게 해도 문제는 없지만, name, health, skill이라는 공통된 패턴이 보이죠. 이처럼 구조는 같고 값만 다르다면 실수하기 쉽습니다.
+예를 들어 skill을 빠뜨리거나 오타가 발생할 수 있고, 이를 찾는 데 시간이 오래 걸릴 수 있습니다.
+
+그리고 만약 경험치(xp) 같은 속성을 추가하려면, 모든 player에 일일이 추가해줘야 합니다
+
+솔직히 이렇게 하나하나 관리하는 건
+
+너무 귀찮고 비효율적입니다.
+또한, 캡슐화 덕분에 유지보수가 쉬워지고, 객체 자체가 하나의 독립적인 단위이기 때문에 재사용도 용이합니다.
+
+그래서 우리가 객체 지향 프로그래밍을 사용하는 겁니다!
+
+
+종류
+객체 지향 프로그래밍은 사용하는 언어로는 대표적으로 Java , C# , Python , Java Script등이 있다
+
+
+
+
+
+가장 대표인 객체 지향 언어는 Java이다.
+(Java Script 도 객체 지향 언어이긴 하지만 완벽한 객체 지향은 아니다)
+
+특징
+자, 이제 객체 지향 프로그래밍의 주요 특징을 알아봅시다.
+크게 4가지로 나눌 수 있습니다:
+캡슐화 (Encapsulation)
+
+추상화 (Abstraction)
+
+상속 (Inheritance)
+
+다형성 (Polymorphism)
+
+🔒 캡슐화 (Encapsulation)
+캡슐화는 코드를 외부로부터 보호하기 위한 껍질입니다.
+
+속성과 메서드를 하나의 객체로 묶고, 외부에서 직접 접근하지 못하도록 제한합니다. 이를 통해
+
+내부 구조를 숨길 수 있고
+
+유지보수성 및 재사용성이 향상됩니다.
+
+단점이라면, 접근 제어가 많아지면 코드가 다소 복잡해질 수 있다는 점입니다.
+
+class Person {
+    // private으로 외부 직접 접근 차단
+    private String name;
+
+    // public 메서드를 통해 접근 허용
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Person p = new Person();
+        p.setName("Alice");
+        System.out.println(p.getName()); // 출력: Alice
+    }
+}
+출력결과
+Alice
+
+🧩 추상화 (Abstraction)
+추상화란 공통된 특성이나 속성만 쏙 뽑아내는 것입니다.
+
+쉽게 말해, 불필요한 정보는 감추고 필요한 부분만 표현하는 기술입니다.
+
+예를 들어, 집을 짓기 전 설계도를 만든다고 할 때, 지붕, 문, 벽 등 주요 요소만 포함시키는 과정이 추상화입니다.
+
+객체 지향에서도 추상 클래스(abstract class)를 미리 만들어놓고, 공통 기능만 정의해둡니다.
+추상 메서드 하나만 있어도 추상 클래스라고 부릅니다.
+
+// 추상 클래스
+abstract class Animal {
+    // 추상 메서드 (구현이 없는 메서드)
+    abstract void sound();
+    
+    // 일반 메서드 (구현이 있음)
+    void eat() {
+        System.out.println("This animal eats food.");
+    }
+}
+
+// 개 클래스 (Animal 클래스를 상속)
+class Dog extends Animal {
+    // 추상 메서드 sound를 오버라이드하여 구현
+    void sound() {
+        System.out.println("Woof! Woof!");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        // Animal animal = new Animal(); // 추상 클래스는 객체를 직접 생성할 수 없다.
+        
+        // Dog 객체 생성
+        Animal myDog = new Dog();
+        
+        // 메서드 호출
+        myDog.sound(); // "Woof! Woof!" 출력
+        myDog.eat();   // "This animal eats food." 출력
+    }
+}
+출력결과
+Woof! Woof!
+This animal eats food.
+
+👪 상속 (Inheritance)
+상속이란, 기존 클래스를 기반으로 새로운 클래스를 만드는 기능입니다.
+
+부모 클래스가 가지고 있는 속성과 기능을 자식 클래스가 그대로 물려받거나, 확장할 수 있습니다.
+
+예시:
+동물(부모 클래스) → 강아지(자식 클래스)
+강아지는 동물이 가진 속성 외에도 ‘짖기’ 같은 새로운 기능을 추가할 수 있습니다.
+
+class Animal {
+    void eat() {
+        System.out.println("This animal eats food.");
+    }
+}
+
+class Cat extends Animal {
+    void meow() {
+        System.out.println("Meow~");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Cat cat = new Cat();
+        cat.eat();  // 부모 메서드
+        cat.meow(); // 자식 메서드
+    }
+}
+출력결과
+This animal eats food.
+Meow~
+
+🔄 다형성 (Polymorphism)
+같은 이름의 메서드나 연산자가 클래스에 따라 다르게 동작하는 것을 말합니다.
+
+다형성은 두 가지 방식으로 구현됩니다:
+
+class Animal {
+    void sound() {
+        System.out.println("Some sound...");
+    }
+}
+
+class Cow extends Animal {
+    @Override
+    void sound() {
+        System.out.println("Moo~");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Animal a = new Cow(); // 다형성
+        a.sound();            // 실제 객체의 메서드 실행
+    }
+}
+출력결과
+Moo~
+
+✔ 메서드 오버로딩 (Overloading)
+같은 이름의 메서드를
+
+매개변수의 개수나 타입을 달리하여 여러 개 정의
+
+✔ 메서드 오버라이딩 (Overriding)
+부모 클래스에서 정의된 메서드를
+
+자식 클래스에서 동일한 시그니처로 재정의하는 것
