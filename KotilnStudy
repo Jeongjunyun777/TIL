@@ -1,10 +1,9 @@
 Kotiln 공부
 --------------------------
 ## 변수 선언
-``` kotlin
-var 변수명 = 값 
-
+```kotlin
 var i = 1
 var name = "김철수"
 var point = 4.4
+\`\`\`kotlin`
 
